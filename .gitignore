@@ -19,3 +19,7 @@ venv/
 # Temporary files
 *.tmp
 *.log
+
+# Graduation cleanup
+TRASH/
+TRASH-FILES.md

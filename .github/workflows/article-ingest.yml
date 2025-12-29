@@ -72,7 +72,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || secrets.GITHUB_TOKEN }}
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          python3 kg-learning/scripts/ingest-article.py \
+          python3 scripts/ingest-article.py \
             --url "${{ steps.parse.outputs.url }}" \
             --content article_content.md \
             --output extraction.json
@@ -80,7 +80,7 @@ jobs:
       - name: Generate files
         id: generate
         run: |
-          python3 kg-learning/scripts/generate-files.py \
+          python3 scripts/generate-files.py \
             --extraction extraction.json
 
       - name: Commit and push changes

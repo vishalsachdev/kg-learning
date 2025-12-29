@@ -1,41 +1,71 @@
-# Experiment Sandbox
+# KG Learning
 
-A repository for running isolated experiments. Each experiment lives on its own branch with documentation.
+A knowledge graph-structured repository for learning about knowledge graphs.
 
-## Workflow
+> "Using knowledge graph principles to learn about knowledge graphs" (meta!)
 
-1. **Create a branch**: `git checkout -b exp/<topic>-<owner>`
-2. **Do your work**: Keep commits scoped and frequent
-3. **Log progress**: Document in `docs/experiments/<branch>.md` using the [template](docs/experiments/README.md)
-4. **Share or archive**: Open a PR to merge, or keep the branch as a reference spike
+## Quick Start
 
-See [agents.md](agents.md) for a checklist tailored for AI/automation agents.
+### For Humans
 
-## Active Experiments
+1. **New to KGs?** Start with [Concepts → Foundational](indexes/by-concept.md#foundational-concepts)
+2. **Want to read articles?** Browse [Sources Index](indexes/by-source.md)
+3. **Looking for a topic?** Check [Category Index](indexes/by-category.md)
 
-| Branch | Description | Status |
-|--------|-------------|--------|
-| `exp/gies-agent-demo-vishal` | Agent-friendly API for Gies Business School | Active |
-| `exp/research-task-force-vishal` | AI curriculum task force research | In Progress |
-| `claude/twitter-follower-tracker-*` | Twitter follower tracking web app | Reference |
-| `claude/research-realtime-github-sync-*` | GitHub-Canvas sync feasibility | Research Complete |
+### For AI Agents
 
-## Experiment Logs
+1. **Understand the schema**: Read `schema/ontology.yaml`
+2. **Navigate entities**: Parse `graph/entities.json`
+3. **Traverse relationships**: Query `graph/relationships.json`
+4. **Get detailed content**: Read `concepts/*.md` or `sources/articles/*.md`
 
-Browse `docs/experiments/` for documentation on each experiment:
-- [Experiment Template](docs/experiments/README.md)
-- [Twitter Follower Tracker](docs/experiments/claude-twitter-follower-tracker.md)
-- [GitHub-Canvas Sync](docs/experiments/claude-research-realtime-github-sync.md)
+## Repository Structure
 
-## Getting Started
-
-```bash
-# Clone and create your experiment branch
-git clone https://github.com/vishalsachdev/helloworld.git
-cd helloworld
-git checkout -b exp/my-experiment-vishal
-
-# Start experimenting, then document
-cp docs/experiments/README.md docs/experiments/exp-my-experiment-vishal.md
-# Edit the template with your notes
 ```
+kg-learning/
+├── CLAUDE.md              # Agent instructions
+├── schema/
+│   └── ontology.yaml      # Entity types & relationships
+├── sources/
+│   └── articles/          # Extracted source materials
+├── concepts/              # Core KG concepts
+├── graph/
+│   ├── entities.json      # All nodes
+│   └── relationships.json # All edges
+└── indexes/               # Navigation entry points
+    ├── by-concept.md      # Concept hierarchy
+    ├── by-source.md       # Source materials
+    └── by-category.md     # Topic categories
+```
+
+## Current Knowledge Graph
+
+### Entities
+- **6 Concepts**: knowledge-graph, ontology, neuro-symbolic-integration, context-management, uri-identifiers, semantic-layer
+- **4 Articles**: from The Knowledge Graph Guys blog
+- **2 Authors**: Tony Seale, Callum Hornblower
+- **7 Categories**: Knowledge Graphs, AI, Enterprise AI, Semantics, LLMs, AI Agents, Agentic AI
+
+### Relationships
+- **18 edges** connecting articles to concepts, concepts to concepts, and articles to authors
+
+## Key Insights from Sources
+
+1. **The Swiss Cheese Problem**: LLMs fail unpredictably on simple tasks. Solution: neuro-symbolic integration with knowledge graphs as symbolic backbone.
+
+2. **Context Rot**: Bigger context windows don't solve retrieval. Solution: precise, ontology-guided context management.
+
+3. **Integration Isn't Optional**: AI-ready data requires URIs and ontologies. Deferring integration creates compounding costs.
+
+4. **KGs Going Mainstream**: SAP, Netflix, ServiceNow, Samsung adopting KGs as foundational infrastructure, not optional tech.
+
+## Adding New Content
+
+See [CLAUDE.md](CLAUDE.md) for detailed instructions on:
+- Adding source articles
+- Creating concept entries
+- Updating the graph
+
+## Primary Source
+
+[The Knowledge Graph Guys Blog](https://www.knowledge-graph-guys.com/blog) - 20+ articles on knowledge graphs, ontologies, and AI.
