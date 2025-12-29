@@ -44,6 +44,27 @@
         "name": "Semantic Layer",
         "level": "intermediate",
         "file": "concepts/semantic-layer.md"
+      },
+      {
+        "id": "concept:spec-first-development",
+        "type": "Concept",
+        "name": "Spec-First Development",
+        "level": "intermediate",
+        "file": "concepts/spec-first-development.md"
+      },
+      {
+        "id": "concept:vibes-based-development",
+        "type": "Concept",
+        "name": "Vibes-Based Development",
+        "level": "intermediate",
+        "file": "concepts/vibes-based-development.md"
+      },
+      {
+        "id": "concept:schema-on-read",
+        "type": "Concept",
+        "name": "Schema-on-Read",
+        "level": "intermediate",
+        "file": "concepts/schema-on-read.md"
       }
     ],
     "articles": [
@@ -82,6 +103,15 @@
         "date": "2025-08-22",
         "category": "category:semantics",
         "file": "sources/articles/integration-isnt-optional.md"
+      },
+      {
+        "id": "article:vibes-vs-spec-first-development",
+        "type": "Article",
+        "title": "Vibes vs Spec-First Development",
+        "author": "author:the-knowledge-graph-guys",
+        "date": "2024-12-15",
+        "category": "category:software-engineering",
+        "file": "sources/articles/vibes-vs-spec-first-development.md"
       }
     ],
     "authors": [
@@ -90,14 +120,23 @@
         "type": "Author",
         "name": "Tony Seale",
         "affiliation": "The Knowledge Graph Guys",
-        "expertise": ["knowledge-graphs", "ontologies", "enterprise-ai", "neuro-symbolic"]
+        "expertise": [
+          "knowledge-graphs",
+          "ontologies",
+          "enterprise-ai",
+          "neuro-symbolic"
+        ]
       },
       {
         "id": "author:callum-hornblower",
         "type": "Author",
         "name": "Callum Hornblower",
         "affiliation": "The Knowledge Graph Guys",
-        "expertise": ["knowledge-graphs", "ai-agents", "systems-thinking"]
+        "expertise": [
+          "knowledge-graphs",
+          "ai-agents",
+          "systems-thinking"
+        ]
       }
     ],
     "categories": [
