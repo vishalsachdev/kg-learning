@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "kg-learning",
+  "version": "1.0.0",
+  "description": "A knowledge graph-structured repository for learning about knowledge graphs",
+  "type": "knowledge-base",
+
+  "entryPoints": {
+    "schema": "schema/ontology.yaml",
+    "entities": "graph/entities.json",
+    "relationships": "graph/relationships.json",
+    "agentInstructions": "CLAUDE.md"
+  },
+
+  "learningPath": {
+    "description": "Recommended order for learning concepts (topologically sorted by 'requires' relationships)",
+    "order": [
+      "concept:uri-identifiers",
+      "concept:ontology",
+      "concept:knowledge-graph",
+      "concept:semantic-layer",
+      "concept:context-management",
+      "concept:neuro-symbolic-integration"
+    ],
+    "levels": {
+      "foundational": ["concept:uri-identifiers", "concept:ontology", "concept:knowledge-graph"],
+      "intermediate": ["concept:semantic-layer", "concept:context-management"],
+      "advanced": ["concept:neuro-symbolic-integration"]
+    }
+  },
+
+  "stats": {
+    "concepts": 6,
+    "articles": 4,
+    "authors": 2,
+    "categories": 7,
+    "relationships": 18,
+    "lastUpdated": "2025-12-29"
+  },
+
+  "agentQuickStart": {
+    "step1": "Load this manifest.json to understand structure",
+    "step2": "Load graph/entities.json for all nodes",
+    "step3": "Load graph/relationships.json for edges",
+    "step4": "For concept details, read concepts/{concept-id}.md",
+    "step5": "For source material, read sources/articles/{article-id}.md"
+  },
+
+  "primarySource": {
+    "name": "The Knowledge Graph Guys Blog",
+    "url": "https://www.knowledge-graph-guys.com/blog",
+    "articlesExtracted": 4,
+    "articlesPending": 16
+  }
+}

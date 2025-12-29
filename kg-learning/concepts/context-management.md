@@ -42,7 +42,6 @@ Genuine performance comes from "reasoned, precise context" not comprehensive pro
 ## Related Concepts
 
 - [knowledge-graph](knowledge-graph.md) - provides structured context
-- [graphrag](graphrag.md) - KG-enhanced retrieval
 - [neuro-symbolic-integration](neuro-symbolic-integration.md) - broader pattern
 
 ## Sources

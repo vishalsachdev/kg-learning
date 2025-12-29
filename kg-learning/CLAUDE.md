@@ -16,21 +16,30 @@ This repository uses **knowledge graph principles** to organize knowledge about 
 
 ```
 kg-learning/
+├── manifest.json          # START HERE - agent entry point
 ├── schema/ontology.yaml   # Entity types & relationship definitions
 ├── sources/articles/      # Extracted source materials (markdown)
 ├── concepts/              # Core concepts as individual files
 ├── graph/
 │   ├── entities.json      # All nodes
 │   └── relationships.json # All edges
-└── indexes/               # Navigation entry points
+└── indexes/               # Navigation entry points (human-readable)
 ```
 
 ## For AI Agents
+
+### Quick Start (5 steps)
+1. **Load `manifest.json`** — understand structure, stats, learning path
+2. **Load `graph/entities.json`** — all nodes (concepts, articles, authors)
+3. **Load `graph/relationships.json`** — all edges with types
+4. **Read `concepts/{id}.md`** — detailed concept content
+5. **Read `sources/articles/{id}.md`** — source material
 
 ### Quick Navigation
 - **Find a concept**: Check `concepts/{concept-name}.md` or `indexes/by-concept.md`
 - **Find sources on a topic**: Check `indexes/by-category.md`
 - **Understand relationships**: Read `graph/relationships.json`
+- **Get learning path**: Check `manifest.json` → `learningPath.order`
 
 ### Adding New Content
 
@@ -74,3 +83,18 @@ When adding new sources:
 2. Extract concepts with clear definitions
 3. Establish relationships to existing concepts
 4. Update indexes for discoverability
+
+## Validation Checklist
+
+Before committing changes, verify:
+
+- [ ] All `file` paths in `entities.json` point to existing files
+- [ ] All `## Related Concepts` links in `.md` files exist
+- [ ] All entity IDs in `relationships.json` exist in `entities.json`
+- [ ] No orphan entities (every concept has at least one relationship)
+- [ ] `manifest.json` stats are up-to-date
+
+**Common issues:**
+- Adding concept to markdown but forgetting `entities.json`
+- Cross-linking to concepts not yet created (like `graphrag.md`)
+- Updating content without updating `lastUpdated` in manifest
