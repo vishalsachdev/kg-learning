@@ -123,6 +123,68 @@
       "from": "concept:context-management",
       "to": "concept:knowledge-graph",
       "relation": "enables"
+    },
+    {
+      "id": "rel:19",
+      "type": "discusses",
+      "from": "article:vibes-vs-spec-first-development",
+      "to": "concept:knowledge-graph",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:20",
+      "type": "discusses",
+      "from": "article:vibes-vs-spec-first-development",
+      "to": "concept:ontology",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:21",
+      "type": "discusses",
+      "from": "article:vibes-vs-spec-first-development",
+      "to": "concept:semantic-layer",
+      "depth": "mentions"
+    },
+    {
+      "id": "rel:22",
+      "type": "discusses",
+      "from": "article:vibes-vs-spec-first-development",
+      "to": "concept:spec-first-development",
+      "depth": "deep-dive"
+    },
+    {
+      "id": "rel:23",
+      "type": "discusses",
+      "from": "article:vibes-vs-spec-first-development",
+      "to": "concept:vibes-based-development",
+      "depth": "deep-dive"
+    },
+    {
+      "id": "rel:24",
+      "type": "discusses",
+      "from": "article:vibes-vs-spec-first-development",
+      "to": "concept:schema-on-read",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:25",
+      "type": "relates_to",
+      "from": "concept:spec-first-development",
+      "to": "concept:ontology",
+      "relation": "requires"
+    },
+    {
+      "id": "rel:26",
+      "type": "relates_to",
+      "from": "concept:schema-on-read",
+      "to": "concept:knowledge-graph",
+      "relation": "enables"
+    },
+    {
+      "id": "rel:27",
+      "type": "written_by",
+      "from": "article:vibes-vs-spec-first-development",
+      "to": "author:the-knowledge-graph-guys"
     }
   ]
 }
