@@ -183,4 +183,8 @@ My knowledge graph graduated today. And in a way, so did my understanding of wha
 
 ---
 
-*This article was written during a live collaboration session with Claude Code. The session included graduating an experiment repo, building a GitHub Actions pipeline, discovering GitHub Copilot Coding Agent, and reflecting on two philosophies of AI automation.*
+## Session Transcript
+
+This article was written during a live collaboration session with Claude Code. [View the full conversation](https://gistpreview.github.io/?8313283b7d967fa391e52ce941535a47) to see how we built this together—including the failures, discoveries, and iterative problem-solving that led to these insights.
+
+*The session included graduating an experiment repo, building a GitHub Actions pipeline, discovering GitHub Copilot Coding Agent, fixing the graduation workflow, and reflecting on two philosophies of AI automation.*
