@@ -1,0 +1,141 @@
+{
+  "$schema": "../schema/ontology.yaml",
+  "version": "1.0",
+  "entities": {
+    "concepts": [
+      {
+        "id": "concept:knowledge-graph",
+        "type": "Concept",
+        "name": "Knowledge Graph",
+        "level": "foundational",
+        "file": "concepts/knowledge-graph.md"
+      },
+      {
+        "id": "concept:ontology",
+        "type": "Concept",
+        "name": "Ontology",
+        "level": "foundational",
+        "file": "concepts/ontology.md"
+      },
+      {
+        "id": "concept:neuro-symbolic-integration",
+        "type": "Concept",
+        "name": "Neuro-Symbolic Integration",
+        "level": "advanced",
+        "file": "concepts/neuro-symbolic-integration.md"
+      },
+      {
+        "id": "concept:context-management",
+        "type": "Concept",
+        "name": "Context Management",
+        "level": "intermediate",
+        "file": "concepts/context-management.md"
+      },
+      {
+        "id": "concept:uri-identifiers",
+        "type": "Concept",
+        "name": "URI Identifiers",
+        "level": "foundational",
+        "file": "concepts/uri-identifiers.md"
+      },
+      {
+        "id": "concept:semantic-layer",
+        "type": "Concept",
+        "name": "Semantic Layer",
+        "level": "intermediate",
+        "file": "concepts/semantic-layer.md"
+      }
+    ],
+    "articles": [
+      {
+        "id": "article:swiss-cheese-problem",
+        "type": "Article",
+        "title": "The Swiss Cheese Problem: Why AI Agents Need Symbolic Backbone",
+        "author": "author:tony-seale",
+        "date": "2025-09-26",
+        "category": "category:artificial-intelligence",
+        "file": "sources/articles/swiss-cheese-problem.md"
+      },
+      {
+        "id": "article:kg-going-mainstream",
+        "type": "Article",
+        "title": "Knowledge Graphs Are Going Mainstream: The New Foundation for AI",
+        "author": "author:callum-hornblower",
+        "date": "2025-06-27",
+        "category": "category:knowledge-graphs",
+        "file": "sources/articles/kg-going-mainstream.md"
+      },
+      {
+        "id": "article:context-rot",
+        "type": "Article",
+        "title": "Context Rot: Why Bigger Context Windows Aren't the Answer",
+        "author": "author:tony-seale",
+        "date": "2025-09-05",
+        "category": "category:llms",
+        "file": "sources/articles/context-rot.md"
+      },
+      {
+        "id": "article:integration-isnt-optional",
+        "type": "Article",
+        "title": "Integration Isn't Optional: Why AI-Ready Data Needs URIs and Ontologies",
+        "author": "author:tony-seale",
+        "date": "2025-08-22",
+        "category": "category:semantics",
+        "file": "sources/articles/integration-isnt-optional.md"
+      }
+    ],
+    "authors": [
+      {
+        "id": "author:tony-seale",
+        "type": "Author",
+        "name": "Tony Seale",
+        "affiliation": "The Knowledge Graph Guys",
+        "expertise": ["knowledge-graphs", "ontologies", "enterprise-ai", "neuro-symbolic"]
+      },
+      {
+        "id": "author:callum-hornblower",
+        "type": "Author",
+        "name": "Callum Hornblower",
+        "affiliation": "The Knowledge Graph Guys",
+        "expertise": ["knowledge-graphs", "ai-agents", "systems-thinking"]
+      }
+    ],
+    "categories": [
+      {
+        "id": "category:knowledge-graphs",
+        "type": "Category",
+        "name": "Knowledge Graphs"
+      },
+      {
+        "id": "category:artificial-intelligence",
+        "type": "Category",
+        "name": "Artificial Intelligence"
+      },
+      {
+        "id": "category:enterprise-ai",
+        "type": "Category",
+        "name": "Enterprise AI"
+      },
+      {
+        "id": "category:semantics",
+        "type": "Category",
+        "name": "Semantics"
+      },
+      {
+        "id": "category:llms",
+        "type": "Category",
+        "name": "LLMs"
+      },
+      {
+        "id": "category:ai-agents",
+        "type": "Category",
+        "name": "AI Agents"
+      },
+      {
+        "id": "category:agentic-ai",
+        "type": "Category",
+        "name": "Agentic AI"
+      }
+    ]
+  }
+}

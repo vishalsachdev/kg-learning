@@ -1,0 +1,128 @@
+{
+  "$schema": "../schema/ontology.yaml",
+  "version": "1.0",
+  "relationships": [
+    {
+      "id": "rel:1",
+      "type": "discusses",
+      "from": "article:swiss-cheese-problem",
+      "to": "concept:neuro-symbolic-integration",
+      "depth": "deep-dive"
+    },
+    {
+      "id": "rel:2",
+      "type": "discusses",
+      "from": "article:swiss-cheese-problem",
+      "to": "concept:knowledge-graph",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:3",
+      "type": "discusses",
+      "from": "article:kg-going-mainstream",
+      "to": "concept:knowledge-graph",
+      "depth": "deep-dive"
+    },
+    {
+      "id": "rel:4",
+      "type": "discusses",
+      "from": "article:kg-going-mainstream",
+      "to": "concept:ontology",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:5",
+      "type": "discusses",
+      "from": "article:kg-going-mainstream",
+      "to": "concept:semantic-layer",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:6",
+      "type": "discusses",
+      "from": "article:context-rot",
+      "to": "concept:context-management",
+      "depth": "deep-dive"
+    },
+    {
+      "id": "rel:7",
+      "type": "discusses",
+      "from": "article:context-rot",
+      "to": "concept:knowledge-graph",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:8",
+      "type": "discusses",
+      "from": "article:integration-isnt-optional",
+      "to": "concept:uri-identifiers",
+      "depth": "deep-dive"
+    },
+    {
+      "id": "rel:9",
+      "type": "discusses",
+      "from": "article:integration-isnt-optional",
+      "to": "concept:ontology",
+      "depth": "explains"
+    },
+    {
+      "id": "rel:10",
+      "type": "written_by",
+      "from": "article:swiss-cheese-problem",
+      "to": "author:tony-seale"
+    },
+    {
+      "id": "rel:11",
+      "type": "written_by",
+      "from": "article:kg-going-mainstream",
+      "to": "author:callum-hornblower"
+    },
+    {
+      "id": "rel:12",
+      "type": "written_by",
+      "from": "article:context-rot",
+      "to": "author:tony-seale"
+    },
+    {
+      "id": "rel:13",
+      "type": "written_by",
+      "from": "article:integration-isnt-optional",
+      "to": "author:tony-seale"
+    },
+    {
+      "id": "rel:14",
+      "type": "relates_to",
+      "from": "concept:knowledge-graph",
+      "to": "concept:ontology",
+      "relation": "requires"
+    },
+    {
+      "id": "rel:15",
+      "type": "relates_to",
+      "from": "concept:ontology",
+      "to": "concept:uri-identifiers",
+      "relation": "requires"
+    },
+    {
+      "id": "rel:16",
+      "type": "relates_to",
+      "from": "concept:semantic-layer",
+      "to": "concept:knowledge-graph",
+      "relation": "requires"
+    },
+    {
+      "id": "rel:17",
+      "type": "relates_to",
+      "from": "concept:neuro-symbolic-integration",
+      "to": "concept:knowledge-graph",
+      "relation": "requires"
+    },
+    {
+      "id": "rel:18",
+      "type": "relates_to",
+      "from": "concept:context-management",
+      "to": "concept:knowledge-graph",
+      "relation": "enables"
+    }
+  ]
+}

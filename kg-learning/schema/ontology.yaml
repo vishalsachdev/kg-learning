@@ -1,0 +1,89 @@
+# Knowledge Graph Learning Ontology
+# Defines entity types and relationships for this knowledge base
+
+version: "1.0"
+description: Schema for organizing knowledge about knowledge graphs
+
+# Entity Types (Nodes)
+entity_types:
+  Article:
+    description: Source material (blog post, paper, video)
+    properties:
+      - id: string (required, URI-style)
+      - title: string (required)
+      - url: string (required)
+      - author: string
+      - date: date
+      - category: string
+      - summary: string
+      - key_concepts: list[string]
+
+  Concept:
+    description: A knowledge graph concept or principle
+    properties:
+      - id: string (required, kebab-case)
+      - name: string (required)
+      - definition: string (required)
+      - aliases: list[string]
+      - examples: list[string]
+      - level: enum[foundational, intermediate, advanced]
+
+  Author:
+    description: Content creator or thought leader
+    properties:
+      - id: string (required)
+      - name: string (required)
+      - affiliation: string
+      - expertise: list[string]
+
+  Category:
+    description: Topic grouping
+    properties:
+      - id: string (required)
+      - name: string (required)
+      - parent: string (optional, for hierarchy)
+
+# Relationship Types (Edges)
+relationship_types:
+  discusses:
+    description: Article covers a concept
+    from: Article
+    to: Concept
+    properties:
+      - depth: enum[mentions, explains, deep-dive]
+
+  written_by:
+    description: Authorship relationship
+    from: Article
+    to: Author
+
+  relates_to:
+    description: Concept-to-concept relationship
+    from: Concept
+    to: Concept
+    properties:
+      - type: enum[requires, enables, contrasts, specializes, generalizes]
+
+  belongs_to:
+    description: Categorization
+    from: Article
+    to: Category
+
+  exemplifies:
+    description: Article serves as example of concept
+    from: Article
+    to: Concept
+
+# Core Concepts (seed list)
+# These are extracted from Knowledge Graph Guys blog themes
+core_concepts:
+  - neuro-symbolic-integration
+  - ontology
+  - knowledge-graph
+  - semantic-layer
+  - uri-identifiers
+  - context-management
+  - agentic-ai
+  - reasoning-types
+  - data-integration
+  - enterprise-ai
