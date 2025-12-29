@@ -76,13 +76,50 @@ Based on Knowledge Graph Guys blog:
 
 Primary source: [The Knowledge Graph Guys Blog](https://www.knowledge-graph-guys.com/blog)
 
-## Contributing
+## Adding Articles (Automated)
 
-When adding new sources:
+The easiest way to add articles is via **GitHub Issue**:
+
+### From Phone or Desktop
+1. Go to [New Issue](../../issues/new/choose)
+2. Select "Add Article to Knowledge Base"
+3. Paste the article URL
+4. Submit!
+
+The GitHub Action will automatically:
+- Fetch and parse the article
+- Extract metadata, concepts, and relationships
+- Generate all necessary files
+- Commit directly to main
+
+### Manual Fallback
+If automation fails:
 1. Follow the ontology schema
 2. Extract concepts with clear definitions
 3. Establish relationships to existing concepts
 4. Update indexes for discoverability
+
+## Scripts
+
+| Script | Purpose |
+|--------|---------|
+| `scripts/ingest-article.py` | Extract metadata from article using GitHub Models API |
+| `scripts/generate-files.py` | Generate markdown and update JSON files |
+
+### Running Manually
+```bash
+# Fetch article content
+curl -o article.html "https://example.com/article"
+
+# Extract with GitHub Models API
+GITHUB_TOKEN=xxx python scripts/ingest-article.py \
+  --url "https://example.com/article" \
+  --content article.html \
+  --output extraction.json
+
+# Generate files
+python scripts/generate-files.py --extraction extraction.json
+```
 
 ## Validation Checklist
 

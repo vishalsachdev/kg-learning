@@ -1,0 +1,34 @@
+name: Add Article to Knowledge Base
+description: Submit an article URL for automatic ingestion into the knowledge graph
+labels: ["article-ingest"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Add an Article
+        Submit a URL and it will be automatically processed and added to the knowledge graph.
+
+  - type: input
+    id: url
+    attributes:
+      label: Article URL
+      description: The full URL of the article to add
+      placeholder: https://www.knowledge-graph-guys.com/blog/article-name
+    validations:
+      required: true
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)
+      description: Any context about why this article is relevant or specific concepts to extract
+      placeholder: |
+        This article covers the relationship between ontologies and LLMs...
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I've verified this URL is accessible
+          required: true

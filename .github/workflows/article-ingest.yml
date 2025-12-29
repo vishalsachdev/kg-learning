@@ -1,0 +1,131 @@
+name: Article Ingestion
+
+on:
+  issues:
+    types: [opened, labeled]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  ingest:
+    if: contains(github.event.issue.labels.*.name, 'article-ingest')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install requests beautifulsoup4 html2text pyyaml
+
+      - name: Extract URL from issue
+        id: parse
+        run: |
+          # Extract URL from issue body
+          BODY="${{ github.event.issue.body }}"
+          URL=$(echo "$BODY" | grep -oE 'https?://[^ ]+' | head -1 | tr -d '\r\n')
+          echo "url=$URL" >> $GITHUB_OUTPUT
+          echo "Extracted URL: $URL"
+
+      - name: Fetch and convert article
+        id: fetch
+        run: |
+          python3 << 'EOF'
+          import requests
+          import html2text
+          import os
+
+          url = "${{ steps.parse.outputs.url }}"
+          print(f"Fetching: {url}")
+
+          response = requests.get(url, headers={'User-Agent': 'Mozilla/5.0'})
+          response.raise_for_status()
+
+          h = html2text.HTML2Text()
+          h.ignore_links = False
+          h.ignore_images = True
+          markdown = h.handle(response.text)
+
+          # Save for next step
+          with open('article_content.md', 'w') as f:
+              f.write(markdown)
+
+          print(f"Converted {len(markdown)} chars to markdown")
+          EOF
+
+      - name: Process with GitHub Models API
+        id: extract
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 kg-learning/scripts/ingest-article.py \
+            --url "${{ steps.parse.outputs.url }}" \
+            --content article_content.md \
+            --output extraction.json
+
+      - name: Generate files
+        id: generate
+        run: |
+          python3 kg-learning/scripts/generate-files.py \
+            --extraction extraction.json
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add -A
+
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+
+          git commit -m "Add article: ${{ github.event.issue.title }}
+
+          Closes #${{ github.event.issue.number }}
+
+          🤖 Auto-ingested via GitHub Actions"
+
+          git push origin main
+
+      - name: Close issue with comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `✅ Article successfully ingested!\n\nThe article has been added to the knowledge base and merged to main.`
+            });
+
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: 'closed'
+            });
+
+      - name: Handle failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `❌ Article ingestion failed.\n\nPlease check the [workflow run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) for details.\n\nYou may need to manually process this article.`
+            });
