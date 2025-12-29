@@ -5,7 +5,7 @@
 - **author**: The Knowledge Graph Guys
 - **date**: 2024-12-15
 - **category**: Software Engineering
-- **key_concepts**: [knowledge-graph, ontology, semantic-layer]
+- **key_concepts**: [spec-first-development, vibes-based-development, schema-on-read, knowledge-graph, ontology, semantic-layer]
 
 ## Summary
 

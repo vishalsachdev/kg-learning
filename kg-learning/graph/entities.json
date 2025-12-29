@@ -137,6 +137,17 @@
           "ai-agents",
           "systems-thinking"
         ]
+      },
+      {
+        "id": "author:the-knowledge-graph-guys",
+        "type": "Author",
+        "name": "The Knowledge Graph Guys",
+        "affiliation": "The Knowledge Graph Guys",
+        "expertise": [
+          "knowledge-graphs",
+          "ontology-design",
+          "ai-development"
+        ]
       }
     ],
     "categories": [
@@ -174,6 +185,11 @@
         "id": "category:agentic-ai",
         "type": "Category",
         "name": "Agentic AI"
+      },
+      {
+        "id": "category:software-engineering",
+        "type": "Category",
+        "name": "Software Engineering"
       }
     ]
   }
