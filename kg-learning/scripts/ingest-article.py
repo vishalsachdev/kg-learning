@@ -18,8 +18,9 @@ from pathlib import Path
 
 import requests
 
-# GitHub Models API endpoint (OpenAI-compatible)
+# API endpoints (OpenAI-compatible)
 GITHUB_MODELS_URL = "https://models.inference.ai.azure.com/chat/completions"
+OPENAI_URL = "https://api.openai.com/v1/chat/completions"
 
 # Existing concepts in the knowledge graph
 EXISTING_CONCEPTS = [
@@ -90,16 +91,29 @@ def load_content(content_path: str) -> str:
         return f.read()
 
 
-def call_github_models(prompt: str) -> dict:
-    """Call GitHub Models API to extract information."""
-    token = os.environ.get("GITHUB_TOKEN")
-    if not token:
-        raise ValueError("GITHUB_TOKEN environment variable not set")
+def call_llm_api(prompt: str) -> dict:
+    """Call LLM API to extract information. Tries OpenAI first, then GitHub Models."""
 
-    headers = {
-        "Authorization": f"Bearer {token}",
-        "Content-Type": "application/json",
-    }
+    # Try OpenAI API first (more reliable)
+    openai_key = os.environ.get("OPENAI_API_KEY")
+    github_token = os.environ.get("GITHUB_TOKEN")
+
+    if openai_key:
+        url = OPENAI_URL
+        headers = {
+            "Authorization": f"Bearer {openai_key}",
+            "Content-Type": "application/json",
+        }
+        print("Using OpenAI API...")
+    elif github_token:
+        url = GITHUB_MODELS_URL
+        headers = {
+            "Authorization": f"Bearer {github_token}",
+            "Content-Type": "application/json",
+        }
+        print("Using GitHub Models API...")
+    else:
+        raise ValueError("Neither OPENAI_API_KEY nor GITHUB_TOKEN environment variable is set")
 
     payload = {
         "model": "gpt-4o",
@@ -111,7 +125,7 @@ def call_github_models(prompt: str) -> dict:
         "max_tokens": 4000,
     }
 
-    response = requests.post(GITHUB_MODELS_URL, headers=headers, json=payload)
+    response = requests.post(url, headers=headers, json=payload)
     response.raise_for_status()
 
     result = response.json()
@@ -158,8 +172,8 @@ def main():
     )
 
     # Call API
-    print("Calling GitHub Models API for extraction...")
-    extraction = call_github_models(prompt)
+    print("Calling LLM API for extraction...")
+    extraction = call_llm_api(prompt)
 
     # Add URL and generate slug
     extraction["url"] = args.url

@@ -67,7 +67,10 @@ jobs:
       - name: Process with GitHub Models API
         id: extract
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Use MODELS_TOKEN secret (PAT with models:read scope)
+          # Or OPENAI_API_KEY if using OpenAI instead
+          GITHUB_TOKEN: ${{ secrets.MODELS_TOKEN || secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           python3 kg-learning/scripts/ingest-article.py \
             --url "${{ steps.parse.outputs.url }}" \
