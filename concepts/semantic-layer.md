@@ -44,7 +44,6 @@ Knowledge graphs implement semantic layers by:
 
 - [ontology](ontology.md) - formal specification behind the layer
 - [knowledge-graph](knowledge-graph.md) - implementation vehicle
-- [data-integration](data-integration.md) - what semantic layer enables
 
 ## Sources
 

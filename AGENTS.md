@@ -1,0 +1,1 @@
+/Users/vishal/.claude/AGENTS.md

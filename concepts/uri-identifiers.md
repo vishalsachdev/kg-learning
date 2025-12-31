@@ -46,7 +46,6 @@ Without stable identifiers, AI agents face:
 
 - [ontology](ontology.md) - defines what URIs identify
 - [knowledge-graph](knowledge-graph.md) - uses URIs as node identifiers
-- [data-integration](data-integration.md) - enabled by URIs
 
 ## Sources
 

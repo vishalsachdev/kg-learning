@@ -40,8 +40,8 @@
     "articles": 5,
     "authors": 3,
     "categories": 8,
-    "relationships": 18,
-    "lastUpdated": "2025-12-29"
+    "relationships": 27,
+    "lastUpdated": "2025-12-30"
   },
   "agentQuickStart": {
     "step1": "Load this manifest.json to understand structure",
