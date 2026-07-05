@@ -27,20 +27,6 @@ This repository uses **knowledge graph principles** to organize knowledge about 
 └── scripts/               # Automation scripts
 ```
 
-## Current Focus
-<!-- What you're working on RIGHT NOW -->
-- [ ] [Feature name]
-
-## Roadmap
-<!-- Feature checklist - check off as you complete -->
-- [ ] Feature A
-- [ ] Feature B
-- [x] Completed Feature C
-
-## Backlog
-<!-- Ideas for later - not committed -->
-- Feature idea X
-
 ## Session Log
 <!-- Updated at end of each session -->
 ### 2025-12-30
